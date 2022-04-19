@@ -13,6 +13,7 @@ services:
             - ../var/log/tomcat:/usr/local/tomcat/logs
             - ../var/log/lucee:/opt/lucee/web/logs
             - ./lucee/root_home/.bash_history:/root/.bash_history
+            - ../../../cfml/:/var/www/cfml
         ports:
             - "8889:8888"
         stdin_open: true
@@ -40,9 +41,23 @@ services:
             backend:
                 aliases:
                     - database.backend
+    ftp:
+        image: delfer/alpine-ftp-server
+        ports:
+            - "22:21"
+            - "22000-22010:21000-21010"
+        environment:
+            - USERS=ftpuser|password1234
+        volumes:
+            - ftpDirectory:/ftp/ftpuser
+        networks:
+            backend:
+                aliases:
+                    - ftp.backend
 
 volumes:
     mariaDbData:
+    ftpDirectory:
 
 networks:
     backend:
