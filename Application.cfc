@@ -19,7 +19,8 @@ component {
             password = server.system.environment.MARIADB_PASSWORD,
             custom = {
                 useUnicode = true,
-                characterEncoding = "UTF-8"
+                characterEncoding = "UTF-8",
+                noAccessToProcedureBodies = true
             }
         }
 
