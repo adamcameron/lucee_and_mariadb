@@ -5,17 +5,17 @@ component {
     loadMappings()
 
     private void function setSettings() {
-        this.name = "lucee_and_mariadb"
+        this.name = "app1"
         this.localMode = "modern"
     }
 
     private void function loadDataSources() {
-        this.datasources[this.name] = {
+        this.datasources["dsn1"] = {
             type = "mysql",
             host = "database.backend",
             port = 3306,
-            database = this.name,
-            username = this.name,
+            database = server.system.environment.MARIADB_DATABASE,
+            username = server.system.environment.MARIADB_USER,
             password = server.system.environment.MARIADB_PASSWORD,
             custom = {
                 useUnicode = true,
@@ -24,7 +24,7 @@ component {
             }
         }
 
-        this.datasource = this.name
+        this.datasource = "dsn1"
     }
 
     private void function loadMappings() {

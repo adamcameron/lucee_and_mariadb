@@ -7,6 +7,8 @@ services:
             args:
                 - LUCEE_PASSWORD=${LUCEE_PASSWORD}
         environment:
+            - MARIADB_DATABASE=${MARIADB_DATABASE}
+            - MARIADB_USER=${MARIADB_USER}
             - MARIADB_PASSWORD=${MARIADB_PASSWORD}
         volumes:
             - ../:/var/www
@@ -42,23 +44,9 @@ services:
             backend:
                 aliases:
                     - database.backend
-    ftp:
-        image: delfer/alpine-ftp-server
-        ports:
-            - "22:21"
-            - "22000-22010:21000-21010"
-        environment:
-            - USERS=ftpuser|password1234
-        volumes:
-            - ftpDirectory:/ftp/ftpuser
-        networks:
-            backend:
-                aliases:
-                    - ftp.backend
 
 volumes:
     mariaDbData:
-    ftpDirectory:
 
 networks:
     backend:
