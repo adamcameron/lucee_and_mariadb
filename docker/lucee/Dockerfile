@@ -1,4 +1,4 @@
-FROM lucee/lucee:5.3
+FROM lucee/lucee:5.3.10.120
 
 ARG LUCEE_PASSWORD
 
