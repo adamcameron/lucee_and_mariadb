@@ -16,7 +16,7 @@ services:
             - ../var/log/lucee/web:/opt/lucee/web/logs
             - ../var/log/lucee/server:/opt/lucee/server/lucee-server/context/logs
             - ./lucee/root_home/.bash_history:/root/.bash_history
-            - ../../../cfml/:/var/www/cfml
+            - ../../cfml/:/var/www/cfml/
         ports:
             - "8889:8888"
         stdin_open: true
