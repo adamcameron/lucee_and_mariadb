@@ -1,4 +1,4 @@
-FROM lucee/lucee:5.3.10.97-nginx
+FROM lucee/lucee:5.4.4.38-nginx
 
 ARG LUCEE_PASSWORD
 
@@ -12,6 +12,7 @@ COPY ./web.xml /usr/local/tomcat/conf/web.xml
 
 WORKDIR  /var/www
 
+RUN apt-get install gnupg --yes
 COPY ./commandbox.properties /usr/local/bin/commandbox.properties
 RUN curl -fsSl https://downloads.ortussolutions.com/debs/gpg | apt-key add -
 RUN echo "deb https://downloads.ortussolutions.com/debs/noarch /" | tee -a /etc/apt/sources.list.d/commandbox.list

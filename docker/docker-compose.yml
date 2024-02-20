@@ -1,4 +1,4 @@
-version: '2'
+version: '3'
 
 services:
     lucee:
@@ -18,7 +18,7 @@ services:
             - ./lucee/root_home/.bash_history:/root/.bash_history
             - ../../cfml/:/var/www/cfml/
         ports:
-            - "8889:8888"
+            - "8854:8888"
         stdin_open: true
         tty: true
         networks:
@@ -33,7 +33,7 @@ services:
             - MARIADB_USER=${MARIADB_USER}
             - MARIADB_PASSWORD=${MARIADB_PASSWORD}
         ports:
-            - "3308:3306"
+            - "3354:3306"
         volumes:
             - mariaDbData:/var/lib/mariadb
             - ./mariadb/root_home:/root

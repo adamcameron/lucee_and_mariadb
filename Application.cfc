@@ -6,7 +6,7 @@ component {
 
     private void function setSettings() {
         this.name = "app1"
-        this.localMode = "modern"
+        //this.localMode = "modern"
     }
 
     private void function loadDataSources() {
