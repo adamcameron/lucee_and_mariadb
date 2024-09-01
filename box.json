@@ -1,7 +1,7 @@
 {
     "dependencies":{},
     "devDependencies":{
-        "testbox":"5.0.0-snapshot"
+        "testbox":"5.3.1+6"
     },
     "installPaths":{
         "testbox":"testbox/"

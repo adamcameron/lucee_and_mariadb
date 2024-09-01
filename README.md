@@ -6,17 +6,11 @@ Installation:
 # start from your `lucee_and_mariadb` directory.
 
 $ pwd
-/mnt/c/src/containers/lucee_and_mariadb/
+~/src/lucee_and_mariadb/
 
 
 $ cd docker
-
-
-$ # ./rebuildContainers.sh [lucee admin password] [DB root password] [DB user password]
-$ # EG:
-
-
-$ ./rebuildContainers.sh 12345 123 1234
+$ ./rebuildContainers.sh
 
 
 # [let it run to completion]

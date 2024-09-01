@@ -1,5 +1,4 @@
 <cfscript>
-    import testbox.system.TestBox
 
 	param URL.testBundles="";
 	if (URL.testBundles.len()) {
@@ -8,6 +7,7 @@
 		param URL.directories="integration,unit";
 	}
 
+    import testbox.system.TestBox
 	testBox = new TestBox(
 		bundles = URL.testBundles.listReduce(qualifyTestElements, []),
 		directories = URL.directories.listReduce(qualifyTestElements, [])

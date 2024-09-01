@@ -1,15 +1,12 @@
-version: '3'
-
 services:
     lucee:
         build:
             context: ./lucee
             args:
                 - LUCEE_PASSWORD=${LUCEE_PASSWORD}
-        environment:
-            - MARIADB_DATABASE=${MARIADB_DATABASE}
-            - MARIADB_USER=${MARIADB_USER}
-            - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+        env_file:
+            - env/envVars.public
+            - env/envVars.private
         volumes:
             - ../:/var/www
             - ../var/log/tomcat:/usr/local/tomcat/logs
@@ -27,11 +24,9 @@ services:
     mariadb:
         build:
             context: ./mariadb
-        environment:
-            - MARIADB_ROOT_PASSWORD=${MARIADB_ROOT_PASSWORD}
-            - MARIADB_DATABASE=${MARIADB_DATABASE}
-            - MARIADB_USER=${MARIADB_USER}
-            - MARIADB_PASSWORD=${MARIADB_PASSWORD}
+        env_file:
+            - env/envVars.public
+            - env/envVars.private
         ports:
             - "3354:3306"
         volumes:

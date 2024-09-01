@@ -1,4 +1,4 @@
-FROM lucee/lucee:5.4.4.38-nginx
+FROM lucee/lucee:5.4.5.23-nginx
 
 ARG LUCEE_PASSWORD
 
